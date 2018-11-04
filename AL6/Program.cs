@@ -44,7 +44,22 @@ namespace AL6
                 File.Copy(path, newPath, true);                           
             }
 
+            // AL6-P5/7
+            string logPath = @"C:\\Program Files Copy\\log.txt";
 
+            System.IO.StreamWriter logFile = new System.IO.StreamWriter(logPath, true);
+
+            string textUsers;
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write("User1: ");
+                textUsers = Console.ReadLine();
+                logFile.WriteLine("User1 " + DateTime.Now.ToString() + " : " + textUsers);
+                Console.Write("User2: ");
+                textUsers = Console.ReadLine();
+                logFile.WriteLine("User2 " + DateTime.Now.ToString() + " : " + textUsers);
+            }
+            logFile.Close();
         }
     }
 }
